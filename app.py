@@ -11,9 +11,15 @@ def home():
 def get_data():
     conn = sqlite3.connect("database.db")
     cursor = conn.cursor()
-    cursor.execute("SELECT letter FROM letters LIMIT 1")
+    
+    print("Connected to the database successfully.")
+    
+    cursor.execute("SELECT Letters FROM letters LIMIT 1")
     
     result = cursor.fetchone()
+    
+    print(f"Fetched letter from database: {result[0] if result else 'No data found'}")
+    
     conn.close()
     
     return jsonify(
