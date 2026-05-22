@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Letter App</title>
+</head>
+<body>
+    <h1>Letter From Backend:</h1>
+    <button onclick="loadLetter()">
+        Get Letter
+    </button>
+    <h2 id="output"></h2>
+    <script>
+        async function loadLetter() {
+            const response = await fetch("/data")
+            const data = await response.json()
+            document.getElementById("output").innerText =
+                data.letter
+        }
+    </script>
+</body>
+</html>
