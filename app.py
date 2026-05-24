@@ -10,6 +10,7 @@ def home():
 @app.route("/data")
 def get_data():
     conn = sqlite3.connect("database.db")
+    
     cursor = conn.cursor()
     
     print("Connected to the database successfully.")
